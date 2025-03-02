@@ -1,0 +1,18 @@
+{
+    "timestamp": "20250228_115636",
+    "stats": {
+        "total_events": 1,
+        "high_severity": 0,
+        "unique_sources": "{'192.168.71.78'}"
+    },
+    "recent_events": [
+        {
+            "timestamp": "2025-02-28 11:56:36",
+            "source_ip": "192.168.71.78",
+            "target_ip": "10.0.186.69",
+            "protocol": "ICMP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        }
+    ]
+}

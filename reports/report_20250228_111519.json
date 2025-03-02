@@ -1,0 +1,892 @@
+{
+    "timestamp": "2025-02-28 11:15:19",
+    "summary": {
+        "total_events": 6426,
+        "high_severity": 2159,
+        "unique_sources": 79,
+        "unique_sources_list": [
+            "192.168.30.200",
+            "192.168.222.86",
+            "192.168.35.52",
+            "192.168.130.37",
+            "192.168.171.47",
+            "192.168.104.94",
+            "192.168.249.40",
+            "192.168.137.176",
+            "192.168.209.146",
+            "192.168.104.172",
+            "192.168.25.64",
+            "192.168.58.117",
+            "192.168.169.49",
+            "192.168.108.222",
+            "192.168.220.22",
+            "192.168.194.223",
+            "192.168.245.11",
+            "192.168.0.197",
+            "192.168.113.186",
+            "192.168.78.251",
+            "192.168.145.230",
+            "192.168.8.74",
+            "192.168.179.27",
+            "192.168.244.160",
+            "192.168.232.223",
+            "192.168.85.161",
+            "192.168.18.59",
+            "192.168.171.136",
+            "192.168.222.178",
+            "89.35.30.231",
+            "192.168.81.6",
+            "192.168.164.175",
+            "192.168.198.100",
+            "192.168.204.26",
+            "192.168.29.118",
+            "192.168.169.217",
+            "192.168.152.157",
+            "192.168.101.19",
+            "192.168.224.52",
+            "192.168.24.39",
+            "192.168.162.203",
+            "192.168.239.124",
+            "192.168.15.38",
+            "192.168.216.31",
+            "192.168.53.66",
+            "192.168.141.170",
+            "192.168.111.38",
+            "192.168.214.173",
+            "192.168.106.157",
+            "192.168.38.52",
+            "192.168.76.232",
+            "192.168.43.124",
+            "192.168.243.26",
+            "192.168.207.4",
+            "192.168.240.175",
+            "192.168.122.36",
+            "192.168.43.71",
+            "192.168.233.148",
+            "192.168.83.73",
+            "192.168.122.217",
+            "192.168.146.217",
+            "192.168.31.2",
+            "192.168.242.118",
+            "192.168.20.136",
+            "192.168.42.185",
+            "192.168.216.36",
+            "192.168.101.215",
+            "192.168.213.232",
+            "192.168.225.127",
+            "192.168.76.78",
+            "192.168.203.163",
+            "192.168.43.169",
+            "138.199.63.250",
+            "192.168.23.121",
+            "192.168.162.30",
+            "192.168.19.107",
+            "192.168.148.63",
+            "192.168.213.6",
+            "192.168.163.71"
+        ]
+    },
+    "events": [
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:17",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "Low",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "89.35.30.231",
+            "target_ip": "192.168.0.197",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 89.35.30.231:51820 > 192.168.0.197:64076 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "Medium",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.0.197",
+            "target_ip": "89.35.30.231",
+            "protocol": 17,
+            "severity": "High",
+            "packet_info": "Ether / IP / UDP 192.168.0.197:64076 > 89.35.30.231:51820 / Raw"
+        },
+        {
+            "timestamp": "2025-02-28 11:15:18",
+            "source_ip": "192.168.104.172",
+            "target_ip": "10.0.205.144",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        }
+    ],
+    "current_pcap": "C:\\Users\\crist\\GitHub\\demo-two\\SCADA_Monitor\\captures\\capture_20250228_111519.pcap"
+}

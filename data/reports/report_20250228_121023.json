@@ -1,0 +1,18 @@
+{
+    "timestamp": "20250228_121023",
+    "stats": {
+        "total_events": 1,
+        "high_severity": 0,
+        "unique_sources": "{'192.168.41.215'}"
+    },
+    "recent_events": [
+        {
+            "timestamp": "2025-02-28 12:10:23",
+            "source_ip": "192.168.41.215",
+            "target_ip": "10.0.68.193",
+            "protocol": "TCP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        }
+    ]
+}

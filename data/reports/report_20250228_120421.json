@@ -1,0 +1,482 @@
+{
+    "timestamp": "20250228_120421",
+    "stats": {
+        "total_events": 59,
+        "high_severity": 22,
+        "unique_sources": "{'192.168.245.133', '192.168.81.178', '192.168.52.64', '192.168.185.250', '192.168.15.151', '192.168.60.69', '192.168.163.246', '192.168.119.137', '192.168.54.238', '192.168.81.80', '192.168.250.97', '192.168.58.242', '192.168.57.91', '192.168.99.57', '192.168.205.115', '192.168.246.235', '192.168.158.43', '192.168.139.186', '192.168.127.73', '192.168.226.174', '192.168.97.39', '192.168.251.126', '192.168.89.37', '192.168.132.120', '192.168.215.183', '192.168.240.246', '192.168.53.183', '192.168.142.3', '192.168.104.115', '192.168.209.239', '192.168.228.186', '192.168.119.154', '192.168.247.162', '192.168.66.74', '192.168.102.79', '192.168.194.112', '192.168.225.158', '192.168.182.10', '192.168.35.160', '192.168.13.54', '192.168.244.23', '192.168.244.108', '192.168.23.88', '192.168.246.190', '192.168.123.99', '192.168.78.216', '192.168.71.48', '192.168.149.20', '192.168.198.135', '192.168.95.66', '192.168.95.101', '192.168.46.221', '192.168.126.42', '192.168.72.114', '192.168.119.226', '192.168.201.56', '192.168.163.42', '192.168.104.183', '192.168.105.50'}"
+    },
+    "recent_events": [
+        {
+            "timestamp": "2025-02-28 12:03:51",
+            "source_ip": "192.168.104.183",
+            "target_ip": "10.0.83.17",
+            "protocol": "UDP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:51",
+            "source_ip": "192.168.95.101",
+            "target_ip": "10.0.5.30",
+            "protocol": "ICMP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:52",
+            "source_ip": "192.168.119.137",
+            "target_ip": "10.0.54.9",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:52",
+            "source_ip": "192.168.198.135",
+            "target_ip": "10.0.244.33",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:53",
+            "source_ip": "192.168.209.239",
+            "target_ip": "10.0.80.69",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:53",
+            "source_ip": "192.168.142.3",
+            "target_ip": "10.0.247.121",
+            "protocol": "ICMP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:54",
+            "source_ip": "192.168.81.80",
+            "target_ip": "10.0.131.183",
+            "protocol": "ICMP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:54",
+            "source_ip": "192.168.104.115",
+            "target_ip": "10.0.85.66",
+            "protocol": "ICMP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:55",
+            "source_ip": "192.168.78.216",
+            "target_ip": "10.0.184.159",
+            "protocol": "TCP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:55",
+            "source_ip": "192.168.245.133",
+            "target_ip": "10.0.107.133",
+            "protocol": "TCP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:56",
+            "source_ip": "192.168.60.69",
+            "target_ip": "10.0.62.182",
+            "protocol": "UDP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:56",
+            "source_ip": "192.168.246.190",
+            "target_ip": "10.0.180.69",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:57",
+            "source_ip": "192.168.194.112",
+            "target_ip": "10.0.13.186",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:57",
+            "source_ip": "192.168.71.48",
+            "target_ip": "10.0.108.32",
+            "protocol": "ICMP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:58",
+            "source_ip": "192.168.46.221",
+            "target_ip": "10.0.210.249",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:58",
+            "source_ip": "192.168.13.54",
+            "target_ip": "10.0.237.163",
+            "protocol": "UDP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:59",
+            "source_ip": "192.168.15.151",
+            "target_ip": "10.0.174.242",
+            "protocol": "UDP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:03:59",
+            "source_ip": "192.168.251.126",
+            "target_ip": "10.0.4.47",
+            "protocol": "TCP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:00",
+            "source_ip": "192.168.81.178",
+            "target_ip": "10.0.20.164",
+            "protocol": "UDP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:00",
+            "source_ip": "192.168.23.88",
+            "target_ip": "10.0.209.127",
+            "protocol": "UDP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:01",
+            "source_ip": "192.168.54.238",
+            "target_ip": "10.0.238.8",
+            "protocol": "UDP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:01",
+            "source_ip": "192.168.72.114",
+            "target_ip": "10.0.222.135",
+            "protocol": "UDP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:02",
+            "source_ip": "192.168.126.42",
+            "target_ip": "10.0.32.104",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:02",
+            "source_ip": "192.168.250.97",
+            "target_ip": "10.0.118.138",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:03",
+            "source_ip": "192.168.119.154",
+            "target_ip": "10.0.112.2",
+            "protocol": "TCP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:03",
+            "source_ip": "192.168.58.242",
+            "target_ip": "10.0.155.195",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:04",
+            "source_ip": "192.168.215.183",
+            "target_ip": "10.0.92.116",
+            "protocol": "UDP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:04",
+            "source_ip": "192.168.205.115",
+            "target_ip": "10.0.178.11",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:05",
+            "source_ip": "192.168.228.186",
+            "target_ip": "10.0.9.213",
+            "protocol": "ICMP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:05",
+            "source_ip": "192.168.226.174",
+            "target_ip": "10.0.58.18",
+            "protocol": "UDP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:06",
+            "source_ip": "192.168.57.91",
+            "target_ip": "10.0.10.134",
+            "protocol": "UDP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:06",
+            "source_ip": "192.168.246.235",
+            "target_ip": "10.0.25.241",
+            "protocol": "TCP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:07",
+            "source_ip": "192.168.35.160",
+            "target_ip": "10.0.131.193",
+            "protocol": "TCP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:07",
+            "source_ip": "192.168.95.66",
+            "target_ip": "10.0.58.56",
+            "protocol": "TCP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:08",
+            "source_ip": "192.168.185.250",
+            "target_ip": "10.0.125.71",
+            "protocol": "TCP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:08",
+            "source_ip": "192.168.53.183",
+            "target_ip": "10.0.215.190",
+            "protocol": "UDP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:09",
+            "source_ip": "192.168.149.20",
+            "target_ip": "10.0.241.19",
+            "protocol": "ICMP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:09",
+            "source_ip": "192.168.247.162",
+            "target_ip": "10.0.205.116",
+            "protocol": "UDP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:10",
+            "source_ip": "192.168.52.64",
+            "target_ip": "10.0.6.41",
+            "protocol": "ICMP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:11",
+            "source_ip": "192.168.240.246",
+            "target_ip": "10.0.152.225",
+            "protocol": "ICMP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:11",
+            "source_ip": "192.168.225.158",
+            "target_ip": "10.0.189.163",
+            "protocol": "TCP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:12",
+            "source_ip": "192.168.163.42",
+            "target_ip": "10.0.253.46",
+            "protocol": "UDP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:12",
+            "source_ip": "192.168.66.74",
+            "target_ip": "10.0.229.34",
+            "protocol": "TCP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:13",
+            "source_ip": "192.168.139.186",
+            "target_ip": "10.0.57.220",
+            "protocol": "ICMP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:13",
+            "source_ip": "192.168.89.37",
+            "target_ip": "10.0.78.71",
+            "protocol": "ICMP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:14",
+            "source_ip": "192.168.102.79",
+            "target_ip": "10.0.195.33",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:14",
+            "source_ip": "192.168.132.120",
+            "target_ip": "10.0.249.152",
+            "protocol": "ICMP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:15",
+            "source_ip": "192.168.123.99",
+            "target_ip": "10.0.228.227",
+            "protocol": "TCP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:15",
+            "source_ip": "192.168.182.10",
+            "target_ip": "10.0.43.7",
+            "protocol": "UDP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:16",
+            "source_ip": "192.168.244.108",
+            "target_ip": "10.0.142.163",
+            "protocol": "UDP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:16",
+            "source_ip": "192.168.127.73",
+            "target_ip": "10.0.138.159",
+            "protocol": "UDP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:17",
+            "source_ip": "192.168.99.57",
+            "target_ip": "10.0.237.124",
+            "protocol": "UDP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:17",
+            "source_ip": "192.168.119.226",
+            "target_ip": "10.0.199.1",
+            "protocol": "UDP",
+            "severity": "Medium",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:18",
+            "source_ip": "192.168.244.23",
+            "target_ip": "10.0.139.167",
+            "protocol": "TCP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:18",
+            "source_ip": "192.168.158.43",
+            "target_ip": "10.0.102.163",
+            "protocol": "TCP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:19",
+            "source_ip": "192.168.105.50",
+            "target_ip": "10.0.37.214",
+            "protocol": "TCP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:19",
+            "source_ip": "192.168.97.39",
+            "target_ip": "10.0.15.33",
+            "protocol": "ICMP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:20",
+            "source_ip": "192.168.201.56",
+            "target_ip": "10.0.100.214",
+            "protocol": "UDP",
+            "severity": "High",
+            "packet_info": "Simulated packet"
+        },
+        {
+            "timestamp": "2025-02-28 12:04:20",
+            "source_ip": "192.168.163.246",
+            "target_ip": "10.0.229.60",
+            "protocol": "UDP",
+            "severity": "Low",
+            "packet_info": "Simulated packet"
+        }
+    ]
+}
