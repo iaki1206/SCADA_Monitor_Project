@@ -1,7 +1,10 @@
 import os
 import sys
+# Add the project root directory to Python path
+project_root = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(project_root)
+from src.app import app, socketio, start_threads
 import webbrowser
-from app import app, socketio, start_threads
 
 def main():
     print("Starting SCADA Security Monitor...")

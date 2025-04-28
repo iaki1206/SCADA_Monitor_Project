@@ -8,7 +8,7 @@ import random
 from scapy.all import sniff, wrpcap
 import os
 import json
-from .utils.pcap_manager import PcapManager  # Fixed relative import
+from src.utils.pcap_manager import PcapManager # Change to absolute import
 
 app = Flask(__name__, 
     template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'),
