@@ -2,31 +2,40 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
-# Build
-build/
-dist/
-*.spec
-
-# Capture files
-captures/
-data/pcaps/*.pcap
-data/pcaps/
-data/reports/*.json
-data/reports/
-
-# Environment
-venv/
+*.so
+.Python
 env/
-.env
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# IDE
-.vscode/
+# Virtual Environment
+venv/
+ENV/
+
+# IDE files
 .idea/
+.vscode/
+*.swp
+*.swo
 
-# System files
+# Project specific
+data/pcaps/
+data/reports/
+captures/
+*.log
+
+# OS specific
 .DS_Store
 Thumbs.db
-
-# Logs
-*.log
