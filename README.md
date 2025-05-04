@@ -1,26 +1,26 @@
 # SCADA Monitor Project
 
-## Description
-SCADA Monitor is a real-time monitoring system for industrial networks, specialized in detecting and analyzing Modbus traffic. The project provides packet capture, analysis, and reporting capabilities for SCADA systems.
+## Descriere
+SCADA Monitor este un sistem de monitorizare în timp real pentru rețele industriale, specializat în detectarea și analiza traficului Modbus. Proiectul oferă capabilități de captură de pachete, analiză și raportare pentru sisteme SCADA.
 
-## Key Features
-- Real-time network traffic monitoring
-- Specific support for Modbus TCP protocol (Port 502)
-- Automatic packet capture every 30 seconds
-- Detailed report generation in JSON format
-- Web interface for event visualization
-- Automatic capture saving in PCAP format
+## Caracteristici Principale
+- Monitorizare trafic rețea în timp real
+- Suport specific pentru protocolul Modbus TCP (Port 502)
+- Captură automată de pachete la fiecare 30 secunde
+- Generare detaliată de rapoarte în format JSON
+- Interfață web pentru vizualizarea evenimentelor
+- Salvare automată în format PCAP
 
-## System Requirements
+## Cerințe Sistem
 - Python 3.7+
 - Flask
 - Flask-SocketIO
 - Scapy
 - PyModbus
 
-## Installation
-1. Clone the repository:
+## Instalare
+1. Clonează repository-ul:
 ```bash
-git clone https://github.com/yourusername/SCADA_Monitor_Project.git
+git clone https://github.com/username/SCADA_Monitor_Project.git
 cd SCADA_Monitor_Project
 ```
