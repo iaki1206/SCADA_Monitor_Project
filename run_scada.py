@@ -16,9 +16,16 @@ def main():
     print("Starting monitoring threads...")
     threads = start_threads()
     print("Opening web browser...")
-    webbrowser.open('http://localhost:5000')
+    # Use localhost with port 5000
+    local_url = 'http://127.0.0.1:5000'
+    webbrowser.open(local_url)
     try:
-        socketio.run(app, debug=False, allow_unsafe_werkzeug=True)
+        # Run the application locally
+        socketio.run(app, 
+                    host='127.0.0.1',
+                    port=5000,
+                    debug=False, 
+                    allow_unsafe_werkzeug=True)
     except KeyboardInterrupt:
         print("Stopping application...")
     finally:

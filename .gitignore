@@ -39,3 +39,11 @@ captures/
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Additional patterns
+*.spec
+*.pyc
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
