@@ -1,5 +1,4 @@
 
-```plaintext:c%3A%5CUsers%5Ccrist%5CDocuments%5CGitHub%5CSCADA_Monitor_Project%5Cplaintex.txt
 SCADA_Monitor_Project/
 ├── src/
 │   ├── app.py              # Main application
@@ -19,11 +18,6 @@ Project Overview:
 - Web-based interface for monitoring
 - JSON report generation
 - PCAP file storage
-
-Contact Information:
-Cristian Iacob
-Phone: +447467121200
-Email: cristian.iaco6@gmail.com
 
 Key Components:
 1. Network Monitoring
