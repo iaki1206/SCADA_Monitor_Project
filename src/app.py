@@ -9,7 +9,7 @@ from scapy.all import sniff, wrpcap, TCP
 import os
 import json
 from pymodbus.client import ModbusTcpClient
-from utils.pcap_manager import PcapManager
+from .utils.pcap_manager import PcapManager
 
 app = Flask(__name__, 
     template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'),
@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CAPTURE_DIR = os.path.join(BASE_DIR, "data", "pcaps")
 REPORTS_DIR = os.path.join(BASE_DIR, "data", "reports")
 
-# Add these global variables
-scanning_active = True
-simulation_active = True
+# Global variables
+scanning_active = False  # Start with capture disabled
+simulation_active = False
 events = []
 current_pcap = None
 pcap_manager = PcapManager()
@@ -34,6 +34,22 @@ stats = {
     "high_severity": 0,
     "unique_sources": set()
 }
+
+def start_threads():
+    # Create necessary directories
+    for directory in [CAPTURE_DIR, REPORTS_DIR]:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+            print(f"Created directory: {directory}")
+    
+    # Optimize threads
+    simulation_thread = threading.Thread(target=simulate_events, daemon=True)
+    capture_thread = threading.Thread(target=capture_packets, daemon=True)
+    
+    simulation_thread.start()
+    capture_thread.start()
+    
+    return [simulation_thread, capture_thread]
 
 @app.route('/')
 def index():
@@ -46,6 +62,29 @@ def get_stats():
         "high_severity": stats["high_severity"],
         "unique_sources": len(stats["unique_sources"])
     })
+
+@app.route('/api/control/toggle', methods=['POST'])
+def toggle_scanning():
+    global scanning_active, simulation_active
+    try:
+        scanning_active = not scanning_active
+        simulation_active = not simulation_active
+        status = "running" if scanning_active else "stopped"
+        
+        socketio.emit('scanning_status', {
+            "scanning": scanning_active,
+            "status": status
+        })
+        
+        print(f"Monitoring {status}")
+        return jsonify({
+            "scanning": scanning_active,
+            "status": status,
+            "message": f"Monitoring has been {status}"
+        })
+    except Exception as e:
+        print(f"Toggle error: {e}")
+        return jsonify({"error": str(e)}), 500
 
 def packet_callback(packet):
     if hasattr(packet, 'src'):
@@ -94,54 +133,102 @@ def capture_packets():
                     wrpcap(pcap_file, packets)
                     print(f"PCAP saved: {pcap_file}")
                     
-                    packet_analysis = {
-                        "total_packets": len(packets),
-                        "protocols": {},
-                        "source_ips": set(),
-                        "dest_ips": set(),
-                        "timestamp": timestamp,
-                        "modbus_stats": {
-                            "total_modbus_packets": 0,
-                            "function_codes": {},
-                            "unit_ids": set()
-                        }
-                    }
-                    
-                    for packet in packets:
-                        if TCP in packet:
-                            if packet[TCP].sport == 502 or packet[TCP].dport == 502:
-                                packet_analysis["modbus_stats"]["total_modbus_packets"] += 1
-                        
-                        if 'IP' in packet:
-                            proto = packet['IP'].proto
-                            proto_name = {1: "ICMP", 6: "TCP", 17: "UDP"}.get(proto, str(proto))
-                            packet_analysis["protocols"][proto_name] = packet_analysis["protocols"].get(proto_name, 0) + 1
-                            
-                            packet_analysis["source_ips"].add(packet['IP'].src)
-                            packet_analysis["dest_ips"].add(packet['IP'].dst)
-                    
-                    packet_analysis["source_ips"] = list(packet_analysis["source_ips"])
-                    packet_analysis["dest_ips"] = list(packet_analysis["dest_ips"])
-                    packet_analysis["modbus_stats"]["unit_ids"] = list(packet_analysis["modbus_stats"]["unit_ids"])
-                    
-                    report_data = {
-                        "capture_file": pcap_file,
-                        "analysis": packet_analysis,
-                        "stats": {
-                            "unique_sources": len(packet_analysis["source_ips"]),
-                            "unique_destinations": len(packet_analysis["dest_ips"]),
-                            "protocol_distribution": packet_analysis["protocols"],
-                            "modbus_packets": packet_analysis["modbus_stats"]["total_modbus_packets"]
-                        }
-                    }
-                    
-                    with open(report_file, 'w') as f:
-                        json.dump(report_data, f, indent=4)
-                    print(f"Analysis report saved: {report_file}")
+                    packet_analysis = analyze_packets(packets, timestamp)
+                    generate_report(packet_analysis, pcap_file, report_file)
                 
             except Exception as e:
                 print(f"Capture error: {e}")
-            time.sleep(30)
+            time.sleep(30)  # Wait 30 seconds between captures
+
+def analyze_packets(packets, timestamp):
+    analysis = {
+        "total_packets": len(packets),
+        "protocols": {},
+        "source_ips": set(),
+        "dest_ips": set(),
+        "timestamp": timestamp,
+        "modbus_stats": {
+            "total_modbus_packets": 0,
+            "function_codes": {},
+            "unit_ids": set()
+        },
+        "security_analysis": {
+            "potential_threats": [],
+            "recommendations": [],
+            "risk_level": "Low"
+        },
+        "network_health": {
+            "latency": {},
+            "packet_loss": 0,
+            "bandwidth_usage": "Normal"
+        }
+    }
+    
+    for packet in packets:
+        analyze_single_packet(packet, analysis)
+    
+    generate_security_recommendations(analysis)
+    return analysis
+
+def analyze_single_packet(packet, analysis):
+    if TCP in packet:
+        if packet[TCP].sport == 502 or packet[TCP].dport == 502:
+            analysis["modbus_stats"]["total_modbus_packets"] += 1
+            analyze_modbus_packet(packet, analysis)
+    
+    if 'IP' in packet:
+        analyze_ip_packet(packet, analysis)
+
+def generate_report(analysis, pcap_file, report_file):
+    # Change file extension from .json to .txt for better readability
+    report_file = report_file.replace('.json', '.txt')
+    
+    with open(report_file, 'w') as f:
+        f.write("SCADA Security Monitor - Network Analysis Report\n")
+        f.write("=" * 50 + "\n\n")
+        
+        f.write(f"Capture Time: {analysis['timestamp']}\n")
+        f.write(f"PCAP File: {pcap_file}\n\n")
+        
+        f.write("Network Statistics\n")
+        f.write("-" * 20 + "\n")
+        f.write(f"Total Packets: {analysis['total_packets']}\n")
+        f.write("\nProtocol Distribution:\n")
+        for proto, count in analysis['protocols'].items():
+            f.write(f"- {proto}: {count} packets\n")
+        
+        f.write("\nSource IPs:\n")
+        for ip in analysis['source_ips']:
+            f.write(f"- {ip}\n")
+        
+        f.write("\nDestination IPs:\n")
+        for ip in analysis['dest_ips']:
+            f.write(f"- {ip}\n")
+        
+        f.write("\nModbus Analysis\n")
+        f.write("-" * 20 + "\n")
+        f.write(f"Total Modbus Packets: {analysis['modbus_stats']['total_modbus_packets']}\n")
+        
+        if analysis['security_analysis']['potential_threats']:
+            f.write("\nSecurity Threats Detected:\n")
+            for threat in analysis['security_analysis']['potential_threats']:
+                f.write(f"- {threat['type']} from {threat['source']} at {threat['timestamp']}\n")
+        
+        f.write("\nSecurity Recommendations:\n")
+        for rec in analysis['security_analysis']['recommendations']:
+            f.write(f"\nPriority: {rec['priority']}\n")
+            f.write(f"Issue: {rec['issue']}\n")
+            f.write(f"Solution: {rec['solution']}\n")
+        
+        f.write("\nNetwork Health\n")
+        f.write("-" * 20 + "\n")
+        f.write(f"Risk Level: {analysis['security_analysis']['risk_level']}\n")
+        f.write(f"Bandwidth Usage: {analysis['network_health']['bandwidth_usage']}\n")
+        
+        f.write("\n" + "=" * 50 + "\n")
+        f.write("End of Report\n")
+    
+    print(f"Analysis report saved: {report_file}")
 
 def simulate_events():
     while True:
@@ -167,44 +254,6 @@ def simulate_events():
             except Exception as e:
                 print(f"Event simulation error: {e}")
             time.sleep(1)
-
-def start_threads():
-    for directory in [CAPTURE_DIR, REPORTS_DIR]:
-        if not os.path.exists(directory):
-            os.makedirs(directory)
-            print(f"Created directory: {directory}")
-    
-    simulation_thread = threading.Thread(target=simulate_events)
-    capture_thread = threading.Thread(target=capture_packets)
-    
-    simulation_thread.daemon = True
-    capture_thread.daemon = True
-    
-    simulation_thread.start()
-    capture_thread.start()
-    
-    return [simulation_thread, capture_thread]
-
-@app.route('/api/control/toggle', methods=['POST'])
-def toggle_scanning():
-    global scanning_active, simulation_active
-    try:
-        scanning_active = not scanning_active
-        simulation_active = not simulation_active
-        status = "running" if scanning_active else "stopped"
-        
-        socketio.emit('scanning_status', {
-            "scanning": scanning_active,
-            "status": status
-        })
-        
-        return jsonify({
-            "scanning": scanning_active,
-            "status": status
-        })
-    except Exception as e:
-        print(f"Toggle error: {e}")
-        return jsonify({"error": str(e)}), 500
 
 @app.route('/api/files')
 def list_files():

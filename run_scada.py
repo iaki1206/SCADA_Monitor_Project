@@ -7,7 +7,7 @@ from src.app import app, socketio, start_threads
 import webbrowser
 
 def signal_handler(sig, frame):
-    print("Oprire aplicație...")
+    print("Stopping application...")
     sys.exit(0)
 
 def main():
@@ -20,9 +20,9 @@ def main():
     try:
         socketio.run(app, debug=False, allow_unsafe_werkzeug=True)
     except KeyboardInterrupt:
-        print("Oprire aplicație...")
+        print("Stopping application...")
     finally:
-        print("Aplicație oprită cu succes.")
+        print("Application stopped successfully.")
 
 if __name__ == '__main__':
     main()
