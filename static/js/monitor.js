@@ -173,10 +173,57 @@ function updateStats() {
 }
 
 // Toggle Scanning
-document.getElementById('toggleScan').addEventListener('click', function() {
-    const button = this;
+// Add the application shutdown function
+function stopApplication() {
+    const button = document.getElementById('toggleScan');
     button.disabled = true;
 
+    fetch('/api/control/shutdown', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'}
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Server shutting down:', data);
+        button.textContent = 'Server Stopped';
+        button.className = 'btn btn-secondary';
+        
+        // Show shutdown message to user
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'alert alert-warning';
+        alertDiv.textContent = 'Application is shutting down. You can close this window.';
+        document.body.insertBefore(alertDiv, document.body.firstChild);
+        
+        // Disable all interactive elements
+        disableInterface();
+    })
+    .catch(error => {
+        console.error('Error shutting down server:', error);
+        button.disabled = false;
+    });
+}
+
+function disableInterface() {
+    // Disable all buttons and selects
+    document.querySelectorAll('button, select').forEach(element => {
+        element.disabled = true;
+    });
+    
+    // Stop updating stats and file list
+    clearInterval(statsInterval);
+    clearInterval(fileListInterval);
+    
+    // Disconnect socket
+    socket.disconnect();
+}
+
+// Modify the existing toggle button event listener
+document.getElementById('toggleScan').addEventListener('click', function() {
+    const button = this;
+    
+    // Disable button immediately
+    button.disabled = true;
+    
     fetch('/api/control/toggle', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'}
@@ -186,11 +233,161 @@ document.getElementById('toggleScan').addEventListener('click', function() {
         button.textContent = data.scanning ? 'Stop Scanning' : 'Start Scanning';
         button.className = `btn ${data.scanning ? 'btn-danger' : 'btn-success'}`;
     })
+    .catch(error => {
+        console.error('Toggle error:', error);
+        // Revert button state on error
+        button.className = 'btn btn-warning';
+        button.textContent = 'Error';
+    })
     .finally(() => {
-        button.disabled = false;
+        // Enable button faster
+        setTimeout(() => {
+            button.disabled = false;
+        }, 500); // Reduced from 1000 to 500ms
     });
 });
 
-// Initialize
-updateStats();
-setInterval(updateStats, 30000);
+// Add socket listener for immediate status updates
+socket.on('scanning_status', function(data) {
+    const button = document.getElementById('toggleScan');
+    button.textContent = data.scanning ? 'Stop Scanning' : 'Start Scanning';
+    button.className = `btn ${data.scanning ? 'btn-danger' : 'btn-success'}`;
+});
+
+// Update file list refresh
+function updateFileList() {
+    fetch('/api/files')
+        .then(response => response.json())
+        .then(data => {
+            const pcapSelect = document.getElementById('pcap-select');
+            const reportSelect = document.getElementById('report-select');
+            
+            // Update PCAP files
+            pcapSelect.innerHTML = '<option value="">Select PCAP file...</option>';
+            data.pcap_files.forEach(file => {
+                pcapSelect.add(new Option(file, file));
+            });
+            
+            // Update Report files
+            reportSelect.innerHTML = '<option value="">Select Report file...</option>';
+            data.report_files.forEach(file => {
+                reportSelect.add(new Option(file, file));
+            });
+        });
+}
+function updateSelect(id, files) {
+    const select = document.getElementById(id);
+    const defaultOption = select.options[0];
+    select.innerHTML = '';
+    select.appendChild(defaultOption);
+    files.forEach(file => {
+        const option = document.createElement('option');
+        option.value = file;
+        option.textContent = file;
+        select.appendChild(option);
+    });
+}
+
+// Initialize with file list updates
+updateFileList();
+setInterval(updateFileList, 30000);
+function addEventToTable(event) {
+    const table = document.getElementById('events-table');
+    const row = table.insertRow(0);
+    
+    row.className = event.severity === 'High' ? 'table-danger' : 
+                    event.severity === 'Medium' ? 'table-warning' : 'table-success';
+    
+    row.insertCell(0).textContent = event.timestamp;
+    row.insertCell(1).textContent = event.source_ip;
+    row.insertCell(2).textContent = event.target_ip;
+    row.insertCell(3).textContent = event.protocol;
+    row.insertCell(4).textContent = event.severity;
+}
+
+function updateStats() {
+    fetch('/api/stats')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('total-events').textContent = data.total_events;
+            document.getElementById('high-severity').textContent = data.high_severity;
+            document.getElementById('unique-sources').textContent = data.unique_sources;
+        });
+}
+
+// Toggle Scanning
+// Add the application shutdown function
+function stopApplication() {
+    const button = document.getElementById('toggleScan');
+    button.disabled = true;
+
+    fetch('/api/control/shutdown', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'}
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Server shutting down:', data);
+        button.textContent = 'Server Stopped';
+        button.className = 'btn btn-secondary';
+        
+        // Show shutdown message to user
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'alert alert-warning';
+        alertDiv.textContent = 'Application is shutting down. You can close this window.';
+        document.body.insertBefore(alertDiv, document.body.firstChild);
+        
+        // Disable all interactive elements
+        disableInterface();
+    })
+    .catch(error => {
+        console.error('Error shutting down server:', error);
+        button.disabled = false;
+    });
+}
+
+function disableInterface() {
+    // Disable all buttons and selects
+    document.querySelectorAll('button, select').forEach(element => {
+        element.disabled = true;
+    });
+    
+    // Stop updating stats and file list
+    clearInterval(statsInterval);
+    clearInterval(fileListInterval);
+    
+    // Disconnect socket
+    socket.disconnect();
+}
+
+// Modify the existing toggle button event listener
+document.getElementById('toggleScan').addEventListener('click', function() {
+    const button = this;
+    button.disabled = true;
+
+    if (button.textContent === 'Stop Scanning') {
+        // If stopping, shutdown the application
+        stopApplication();
+    } else {
+        // Normal toggle functionality
+        fetch('/api/control/toggle', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(response => response.json())
+        .then(data => {
+            button.textContent = data.scanning ? 'Stop Scanning' : 'Start Scanning';
+            button.className = `btn ${data.scanning ? 'btn-danger' : 'btn-success'}`;
+            updateFileList();
+        })
+        .finally(() => {
+            setTimeout(() => {
+                button.disabled = false;
+            }, 1000);
+        });
+    }
+});
+
+// Store interval references for cleanup
+const statsInterval = setInterval(updateStats, 30000);
+const fileListInterval = setInterval(updateFileList, 30000);

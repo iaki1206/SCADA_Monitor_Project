@@ -1,5 +1,51 @@
-flask
-flask-socketio
-pandas
-numpy
-eventlet
+
+```plaintext:c%3A%5CUsers%5Ccrist%5CDocuments%5CGitHub%5CSCADA_Monitor_Project%5Cplaintex.txt
+SCADA_Monitor_Project/
+├── src/
+│   ├── app.py              # Main application
+│   ├── utils/
+│   │   └── pcap_manager.py # PCAP file manager
+│   ├── static/             # Static files for web interface
+│   └── templates/          # HTML templates
+├── data/
+│   ├── pcaps/             # Directory for PCAP captures
+│   └── reports/           # Directory for JSON reports
+└── README.md
+
+Project Overview:
+- Real-time SCADA network monitoring system
+- Modbus TCP protocol support (Port 502)
+- Automatic packet capture and analysis
+- Web-based interface for monitoring
+- JSON report generation
+- PCAP file storage
+
+Contact Information:
+Cristian Iacob
+Phone: +447467121200
+Email: cristian.iaco6@gmail.com
+
+Key Components:
+1. Network Monitoring
+   - Real-time packet capture
+   - Modbus TCP traffic analysis
+   - Protocol identification
+   - Severity assessment
+
+2. Data Storage
+   - PCAP file storage
+   - JSON report generation
+   - Event logging
+   - Statistical analysis
+
+3. Web Interface
+   - Real-time event display
+   - Statistical dashboard
+   - File download capabilities
+   - Control interface
+
+4. Security Features
+   - High severity event detection
+   - Modbus protocol validation
+   - Source IP tracking
+   - Event timestamping

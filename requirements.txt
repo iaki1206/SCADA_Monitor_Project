@@ -1,5 +1,8 @@
-flask
-flask-socketio
-pandas
-numpy
-eventlet
+Required Python Packages:
+- Flask: Web framework
+- Flask-SocketIO: Real-time WebSocket communication
+- Pandas: Data manipulation
+- NumPy: Numerical operations
+- Eventlet: Async networking library
+- Scapy: Network packet capture
+- PyModbus: Modbus protocol support
