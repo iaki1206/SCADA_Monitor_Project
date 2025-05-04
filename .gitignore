@@ -11,9 +11,9 @@ dist/
 # Capture files
 captures/
 data/pcaps/*.pcap
-
-# Report files
+data/pcaps/
 data/reports/*.json
+data/reports/
 
 # Environment
 venv/
@@ -27,3 +27,6 @@ env/
 # System files
 .DS_Store
 Thumbs.db
+
+# Logs
+*.log
