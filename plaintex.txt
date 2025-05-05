@@ -1,15 +1,21 @@
 
 SCADA_Monitor_Project/
 ├── src/
-│   ├── app.py              # Main application
+│   ├── templates/
+│   │   └── index.html
+│   ├── static/
+│   │   └── js/
+│   │       └── monitor.js
 │   ├── utils/
-│   │   └── pcap_manager.py # PCAP file manager
-│   ├── static/             # Static files for web interface
-│   └── templates/          # HTML templates
+│   │   ├── __init__.py
+│   │   └── pcap_manager.py
+│   └── app.py
 ├── data/
-│   ├── pcaps/             # Directory for PCAP captures
-│   └── reports/           # Directory for JSON reports
-└── README.md
+│   ├── pcaps/
+│   └── reports/
+├── requirements.txt
+├── run_scada.py
+└── .gitignore
 
 Project Overview:
 - Real-time SCADA network monitoring system

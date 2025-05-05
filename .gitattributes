@@ -1,2 +1,14 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Python files
+*.py text diff=python
+*.pyw text diff=python
+
+# Documentation
+*.md text diff=markdown
+*.txt text
+
+# Binary files
+*.pcap binary
+*.pyc binary
