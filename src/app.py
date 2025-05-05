@@ -423,7 +423,23 @@ def analyze_ip_packet(packet, analysis):
         print(f"Error analyzing IP packet: {e}")
 
 def generate_security_recommendations(analysis):
-    """Generate security recommendations based on analysis"""
+    """Generate security recommendations based on packet analysis."""
+    if analysis["modbus_stats"]["total_modbus_packets"] > 0:
+        analysis["security_analysis"]["recommendations"].append(
+            "Implement Modbus TCP whitelist for known devices"
+        )
+    
+    if len(analysis["source_ips"]) > 100:
+        analysis["security_analysis"]["recommendations"].append(
+            "Implement rate limiting to prevent potential DoS attacks"
+        )
+        analysis["security_analysis"]["risk_level"] = "High"
+    
+    if analysis["modbus_stats"]["total_modbus_packets"] > 1000:
+        analysis["security_analysis"]["recommendations"].append(
+            "Monitor for potential Modbus flooding attacks"
+        )
+
     try:
         # Evaluate risk level
         threat_count = len(analysis['security_analysis']['detected_threats'])
