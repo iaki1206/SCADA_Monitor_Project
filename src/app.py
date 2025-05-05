@@ -9,7 +9,7 @@ from scapy.all import sniff, wrpcap, TCP
 import os
 import json
 from pymodbus.client import ModbusTcpClient
-from .utils.pcap_manager import PcapManager
+from .utils.pcap_manager import PcapManager  # Use relative import
 
 app = Flask(__name__, 
     template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'),
@@ -155,7 +155,8 @@ def analyze_packets(packets, timestamp):
         "security_analysis": {
             "potential_threats": [],
             "recommendations": [],
-            "risk_level": "Low"
+            "risk_level": "Low",
+            "detected_threats": []
         },
         "network_health": {
             "latency": {},
@@ -167,66 +168,124 @@ def analyze_packets(packets, timestamp):
     for packet in packets:
         analyze_single_packet(packet, analysis)
     
-    generate_security_recommendations(analysis)
+    generate_security_recommendations(analysis)  # This function is missing
     return analysis
 
 def analyze_single_packet(packet, analysis):
     if TCP in packet:
+        # Check for potential port scanning
         if packet[TCP].sport == 502 or packet[TCP].dport == 502:
             analysis["modbus_stats"]["total_modbus_packets"] += 1
             analyze_modbus_packet(packet, analysis)
+            
+            # Detect potential Modbus-specific threats
+            if packet[TCP].flags == 'S':  # SYN packets
+                threat = {
+                    "type": "Port Scanning",
+                    "severity": "High",
+                    "source": packet.src,
+                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "details": "Potential Modbus port scanning detected",
+                    "solution": "Implement firewall rules to limit Modbus access to known IP addresses",
+                    "mitigation_steps": [
+                        "Configure firewall to whitelist known Modbus devices",
+                        "Implement rate limiting for Modbus connections",
+                        "Enable logging for all Modbus connection attempts"
+                    ]
+                }
+                analysis["security_analysis"]["detected_threats"].append(threat)
+        
+        # Check for potential DoS
+        if len(analysis["source_ips"]) > 100:  # Too many source IPs
+            threat = {
+                "type": "Potential DoS Attack",
+                "severity": "Critical",
+                "source": "Multiple Sources",
+                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "details": "Unusual number of source IPs detected",
+                "solution": "Implement rate limiting and DoS protection mechanisms",
+                "mitigation_steps": [
+                    "Deploy DoS protection at network edge",
+                    "Configure SYN flood protection",
+                    "Set up traffic monitoring and alerting"
+                ]
+            }
+            analysis["security_analysis"]["detected_threats"].append(threat)
     
     if 'IP' in packet:
         analyze_ip_packet(packet, analysis)
+        
+        # Check for suspicious IP patterns
+        if packet['IP'].src.startswith('0.') or packet['IP'].src.startswith('127.'):
+            threat = {
+                "type": "IP Spoofing",
+                "severity": "High",
+                "source": packet['IP'].src,
+                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "details": "Potentially spoofed IP address detected",
+                "solution": "Implement IP filtering and validation mechanisms",
+                "mitigation_steps": [
+                    "Configure ingress filtering",
+                    "Implement reverse path forwarding checks",
+                    "Set up IP reputation monitoring"
+                ]
+            }
+            analysis["security_analysis"]["detected_threats"].append(threat)
 
 def generate_report(analysis, pcap_file, report_file):
-    # Change file extension from .json to .txt for better readability
-    report_file = report_file.replace('.json', '.txt')
+    # Ensure we keep .json extension
+    if not report_file.endswith('.json'):
+        report_file = report_file + '.json'
+    
+    report_data = {
+        "report_metadata": {
+            "capture_time": analysis['timestamp'],
+            "pcap_file": pcap_file,
+            "report_generated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "analysis_version": "1.0"
+        },
+        "network_statistics": {
+            "total_packets": analysis['total_packets'],
+            "protocol_distribution": analysis['protocols'],
+            "unique_sources": list(analysis['source_ips']),
+            "unique_destinations": list(analysis['dest_ips'])
+        },
+        "modbus_analysis": {
+            "total_modbus_packets": analysis['modbus_stats']['total_modbus_packets'],
+            "function_codes": analysis['modbus_stats']['function_codes'],
+            "unit_ids": list(analysis['modbus_stats']['unit_ids']),
+            "suspicious_operations": []
+        },
+        "security_analysis": {
+            "risk_level": analysis['security_analysis']['risk_level'],
+            "detected_threats": [
+                {
+                    "type": threat['type'],
+                    "severity": threat['severity'],
+                    "source": threat['source'],
+                    "timestamp": threat['timestamp'],
+                    "details": threat['details'],
+                    "recommended_solution": threat['solution'],
+                    "mitigation_steps": threat.get('mitigation_steps', [])
+                }
+                for threat in analysis['security_analysis']['detected_threats']
+            ],
+            "recommendations": analysis['security_analysis']['recommendations']
+        },
+        "network_health": {
+            "latency_stats": analysis['network_health']['latency'],
+            "packet_loss_rate": analysis['network_health']['packet_loss'],
+            "bandwidth_status": analysis['network_health']['bandwidth_usage'],
+            "performance_metrics": {
+                "average_response_time": "N/A",
+                "packet_error_rate": "N/A",
+                "network_utilization": "N/A"
+            }
+        }
+    }
     
     with open(report_file, 'w') as f:
-        f.write("SCADA Security Monitor - Network Analysis Report\n")
-        f.write("=" * 50 + "\n\n")
-        
-        f.write(f"Capture Time: {analysis['timestamp']}\n")
-        f.write(f"PCAP File: {pcap_file}\n\n")
-        
-        f.write("Network Statistics\n")
-        f.write("-" * 20 + "\n")
-        f.write(f"Total Packets: {analysis['total_packets']}\n")
-        f.write("\nProtocol Distribution:\n")
-        for proto, count in analysis['protocols'].items():
-            f.write(f"- {proto}: {count} packets\n")
-        
-        f.write("\nSource IPs:\n")
-        for ip in analysis['source_ips']:
-            f.write(f"- {ip}\n")
-        
-        f.write("\nDestination IPs:\n")
-        for ip in analysis['dest_ips']:
-            f.write(f"- {ip}\n")
-        
-        f.write("\nModbus Analysis\n")
-        f.write("-" * 20 + "\n")
-        f.write(f"Total Modbus Packets: {analysis['modbus_stats']['total_modbus_packets']}\n")
-        
-        if analysis['security_analysis']['potential_threats']:
-            f.write("\nSecurity Threats Detected:\n")
-            for threat in analysis['security_analysis']['potential_threats']:
-                f.write(f"- {threat['type']} from {threat['source']} at {threat['timestamp']}\n")
-        
-        f.write("\nSecurity Recommendations:\n")
-        for rec in analysis['security_analysis']['recommendations']:
-            f.write(f"\nPriority: {rec['priority']}\n")
-            f.write(f"Issue: {rec['issue']}\n")
-            f.write(f"Solution: {rec['solution']}\n")
-        
-        f.write("\nNetwork Health\n")
-        f.write("-" * 20 + "\n")
-        f.write(f"Risk Level: {analysis['security_analysis']['risk_level']}\n")
-        f.write(f"Bandwidth Usage: {analysis['network_health']['bandwidth_usage']}\n")
-        
-        f.write("\n" + "=" * 50 + "\n")
-        f.write("End of Report\n")
+        json.dump(report_data, f, indent=4)
     
     print(f"Analysis report saved: {report_file}")
 
@@ -320,4 +379,79 @@ def handle_client_ready():
 
 if __name__ == '__main__':
     threads = start_threads()
-    socketio.run(app, debug=True, host='0.0.0.0', port=5000)
+    socketio.run(app, 
+                 debug=False,  # Disable debug mode for production
+                 host='127.0.0.1',  # Only listen on localhost
+                 port=5000,
+                 allow_unsafe_werkzeug=True)  # Required for SocketIO
+
+
+def analyze_modbus_packet(packet, analysis):
+    """Analyze Modbus packet details"""
+    try:
+        if TCP in packet and packet.haslayer('Raw'):
+            # Extract Modbus function code
+            data = bytes(packet['Raw'])
+            if len(data) > 7:  # Minimum Modbus packet length
+                function_code = data[7]
+                analysis['modbus_stats']['function_codes'][function_code] = \
+                    analysis['modbus_stats']['function_codes'].get(function_code, 0) + 1
+                
+                # Extract unit ID
+                unit_id = data[6]
+                analysis['modbus_stats']['unit_ids'].add(unit_id)
+    except Exception as e:
+        print(f"Error analyzing Modbus packet: {e}")
+
+def analyze_ip_packet(packet, analysis):
+    """Analyze IP packet details"""
+    try:
+        if 'IP' in packet:
+            # Add source and destination IPs
+            analysis['source_ips'].add(packet['IP'].src)
+            analysis['dest_ips'].add(packet['IP'].dst)
+            
+            # Add protocol information
+            proto = packet['IP'].proto
+            proto_name = {1: 'ICMP', 6: 'TCP', 17: 'UDP'}.get(proto, str(proto))
+            analysis['protocols'][proto_name] = analysis['protocols'].get(proto_name, 0) + 1
+            
+            # Basic latency calculation for TCP packets
+            if TCP in packet:
+                analysis['network_health']['latency'][packet['IP'].src] = 0  # Placeholder for actual latency
+    except Exception as e:
+        print(f"Error analyzing IP packet: {e}")
+
+def generate_security_recommendations(analysis):
+    """Generate security recommendations based on analysis"""
+    try:
+        # Evaluate risk level
+        threat_count = len(analysis['security_analysis']['detected_threats'])
+        if threat_count > 5:
+            analysis['security_analysis']['risk_level'] = "Critical"
+        elif threat_count > 2:
+            analysis['security_analysis']['risk_level'] = "High"
+        elif threat_count > 0:
+            analysis['security_analysis']['risk_level'] = "Medium"
+        
+        # Generate recommendations
+        recommendations = []
+        
+        # Check for basic security issues
+        if analysis['modbus_stats']['total_modbus_packets'] > 0:
+            recommendations.append({
+                "priority": "High",
+                "issue": "Modbus traffic detected",
+                "solution": "Implement Modbus security controls and monitoring"
+            })
+        
+        if len(analysis['source_ips']) > 50:
+            recommendations.append({
+                "priority": "High",
+                "issue": "High number of unique source IPs",
+                "solution": "Implement network segmentation and access controls"
+            })
+        
+        analysis['security_analysis']['recommendations'] = recommendations
+    except Exception as e:
+        print(f"Error generating security recommendations: {e}")
